@@ -15,7 +15,7 @@ public:
     }
 
     double toKelvin() {
-        return this->value + 273,15;
+        return this->value + 273.15;
     }
 };
 
@@ -29,11 +29,11 @@ public:
     }
 
     double toCelsius() {
-        return (this->value - 32) * (5/9);
+        return (this->value - 32) * (5.0/9.0);
     }
 
     double toKelvin() {
-        return (this->value - 32) * (5/9) + 273,15;
+        return (this->value - 32) * (5.0/9.0) + 273.15;
     }
 };
 
@@ -47,11 +47,11 @@ public:
     }
 
     double toFarenheit() {
-        return (this->value - 273,15) * (9/5) + 32;
+        return (this->value - 273.15) * (9.0/5.0) + 32;
     }
 
     double toCelsius() {
-        return this->value - 273,15;
+        return this->value - 273.15;
     }
 };
 
