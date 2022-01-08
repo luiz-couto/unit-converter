@@ -1,0 +1,31 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: install gtest
+      run: sudo apt-get install libgtest-dev
+    - name: install cmake
+      run: sudo apt-get install cmake 
+    - name: compile gtest
+      working-directory: /usr/src/gtest
+      run: sudo cmake CMakeLists.txt
+    - name: run make on gtest  
+      working-directory: /usr/src/gtest
+      run: sudo make 
+    - name: copy gtest lib files 
+      working-directory: /usr/src/gtest/lib
+      run: sudo cp *.a /usr/lib
+    - name: Run cmake on project
+      run: mkdir build && cd build && cmake .. && make
+    - name: run tests
+      run: cd build && ctest
