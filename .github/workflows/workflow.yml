@@ -28,4 +28,4 @@ jobs:
     - name: Run cmake on project
       run: mkdir build && cd build && cmake .. && make
     - name: run tests
-      run: cd build && ctest
+      run: cd build && ./unitconvertertest
